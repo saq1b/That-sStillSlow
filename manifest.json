@@ -1,0 +1,28 @@
+{
+    "manifest_version": 2,
+    "name": "That's Still Slow",
+    "version": "1.0",
+    "description": "Increase video speed upto 16x",
+    "icons": {
+    	"128": "icon128.png",
+        "48": "icon48.png",
+        "32": "icon32.png"
+    },
+    "page_action": {
+        "default_icon": "icon16.png",
+        "default_popup": "popup.html",
+		"default_title": "That's Still Slow"
+    },
+    "background": {
+    	"scripts": ["eventPage.js"],
+    	"persistent": false
+    },
+    "content_scripts": [
+    	{
+    		"matches": ["https://www.youtube.com/*"],
+    		"js": ["content.js", "jquery-3.5.1.min.js"],
+    		"css": ["content.css"]
+    	}
+    ],
+    "permissions": ["tabs", "https://www.youtube.com/*"]
+}
